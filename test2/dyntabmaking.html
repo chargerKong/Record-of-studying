@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dynamic table making</title>
+	<style>
+		.tab{
+			background: #EEF894;
+			margin:auto;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+		var table = document.createElement("table");
+		table.width="70%";
+		table.border=1;
+		table.className="tab"
+		// table.style.backgroundColor="blue"
+		// table.style.textAlign="center"
+		// table.style.margin="auto"
+
+		var thead = document.createElement("thead");
+		var tbody = document.createElement("tbody");
+		table.appendChild(thead);
+		table.appendChild(tbody)
+		
+		thead.insertRow(0);
+		thead.rows[0].insertCell(0);
+		thead.rows[0].cells[0].appendChild(document.createTextNode("编号"));
+		thead.rows[0].insertCell(1);
+		thead.rows[0].cells[1].appendChild(document.createTextNode("学号"));
+		thead.rows[0].insertCell(2);
+		thead.rows[0].cells[2].appendChild(document.createTextNode("学号"));
+		thead.rows[0].insertCell(3);
+		thead.rows[0].cells[3].appendChild(document.createTextNode("姓名"));
+		thead.rows[0].insertCell(4);
+		thead.rows[0].cells[4].appendChild(document.createTextNode("年龄"));
+		thead.rows[0].insertCell(5);
+		thead.rows[0].cells[5].appendChild(document.createTextNode("手机号"));
+		thead.rows[0].insertCell(6);
+		var button1=document.createElement("button");
+		button1.appendChild(document.createTextNode("新建"));
+
+		var button2=document.createElement("button");
+		button2.appendChild(document.createTextNode("删除"));
+		// button1.onclick="jie()";
+		button1.setAttribute("onclick","createNewRow()");
+		//button2.onclick=("cl()") 无法通过这种方法来建立button的事件
+		button2.setAttribute("onclick","deleteOldRow()");
+		thead.rows[0].cells[6].appendChild(button1);
+		thead.rows[0].cells[6].appendChild(button2);
+		document.body.appendChild(table)
+
+		
+		function createNewRow(){
+			var rowNumber=tbody.rows.length;
+			tbody.insertRow(rowNumber)
+			for(var i=0;i<7;i++){
+
+				tbody.rows[rowNumber].insertCell(i);
+				tbody.rows[rowNumber].cells[0].appendChild(document.createTextNode(rowNumber))
+			}
+			tbody.rows[rowNumber].style.height="50px";
+
+		}
+
+		function deleteOldRow(){
+			var rowNumber=tbody.rows.length;
+			
+			tbody.deleteRow(rowNumber-1)
+		}
+	</script>
+	
+</body>
+</html>
