@@ -50,6 +50,7 @@
 		// button1.onclick="jie()";
 		button1.setAttribute("onclick","createNewRow()");
 		//button2.onclick=("cl()") 无法通过这种方法来建立button的事件
+		//button2.onclick=cl;我发现在JS中一般只要函数名就好。
 		button2.setAttribute("onclick","deleteOldRow()");
 		thead.rows[0].cells[6].appendChild(button1);
 		thead.rows[0].cells[6].appendChild(button2);
