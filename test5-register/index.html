@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<style type="text/css">
+		*{
+			margin: 0px;padding: 0px;
+
+		}
+		.main{
+			width:800px;
+			padding: 20px 100px;
+			border:2px red solid ;
+			margin: 0 auto;
+			
+		}
+		
+		
+
+		label{
+			text-align: right;
+			width: 100px;
+			display: inline-block;
+			border: 1px solid black;
+			margin-left:146px;
+		}
+
+		div input{
+			height: 30px;
+			border: 1px solid black;
+			font-size: 20px;
+		}
+
+		div{
+			margin: 5px ;
+			border: 1px solid black;
+		}
+
+		#btn{
+			width: 250px;
+			height: 40px;
+			margin: 5px 200px
+		}
+
+		#result{
+			font-size: 5px;
+		}
+
+	</style>
+</head>
+<body class="main" >
+	<form action="" method="get" >
+		<div >
+			<label for="username" class="charac">*用户名</label>
+			<input type="text" name="username" id="username" onblur="userTest()">
+			<span id="result" ></span>
+		</div>
+
+		<div>
+			<label for="password" class="charac" >*密码</label>
+			<input type="text" name="password">
+		</div>
+		<input type="submit" name="提交" id="btn" onclick="">
+	</form>
+
+	<script type="text/javascript">
+		function userTest() {
+			var text = document.getElementById("username").value;
+			var reg = /[a-z]/
+			if(reg.test(text)){
+				document.getElementById("result").innerText="可以"
+			}else{
+				document.getElementById("result").innerText="这样不行"
+			}
+		}
+	</script>
+</body>
+</html>
